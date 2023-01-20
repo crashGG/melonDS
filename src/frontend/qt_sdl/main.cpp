@@ -1660,7 +1660,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
             }
 
             actLoadState[0] = submenu->addAction("File...");
-            actLoadState[0]->setShortcut(QKeySequence((Qt::Key_F9) || (Input::HotkeyPressed(HK_LoadState)));
+            actLoadState[0]->setShortcut(QKeySequence((Qt::Key_F9) || (Input::HotkeyPressed(HK_LoadState))));
             actLoadState[0]->setData(QVariant(0));
             connect(actLoadState[0], &QAction::triggered, this, &MainWindow::onLoadState);
         }
