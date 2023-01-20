@@ -426,6 +426,8 @@ EmuThread::EmuThread(QObject* parent) : QThread(parent)
     connect(this, SIGNAL(screenLayoutChange()), mainWindow->panelWidget, SLOT(onScreenLayoutChanged()));
     connect(this, SIGNAL(windowFullscreenToggle()), mainWindow, SLOT(onFullscreenToggled()));
     connect(this, SIGNAL(swapScreensToggle()), mainWindow->actScreenSwap, SLOT(trigger()));
+	connect(this, SIGNAL(hkSaveState()), mainWindow->actSaveState[1], SLOT(trigger()));
+	connect(this, SIGNAL(hkLoadState()), mainWindow->actLoadState[1], SLOT(trigger()));
 
     static_cast<ScreenPanelGL*>(mainWindow->panel)->transferLayout(this);
 }
@@ -596,6 +598,9 @@ void EmuThread::run()
         if (Input::HotkeyPressed(HK_FullscreenToggle)) emit windowFullscreenToggle();
 
         if (Input::HotkeyPressed(HK_SwapScreens)) emit swapScreensToggle();
+		
+		if (Input::HotkeyPressed(HK_SaveState)) emit hkSaveState();
+		if (Input::HotkeyPressed(HK_LoadState)) emit hkLoadState();
 
         if (Input::HotkeyPressed(HK_SolarSensorDecrease))
         {
@@ -1644,7 +1649,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
             }
 
             actSaveState[0] = submenu->addAction("File...");
-            actSaveState[0]->setShortcut(QKeySequence((Qt::ShiftModifier | Qt::Key_F9) || (Input::HotkeyPressed(HK_SaveState))));
+            actSaveState[0]->setShortcut(QKeySequence(Qt::ShiftModifier | Qt::Key_F9));
             actSaveState[0]->setData(QVariant(0));
             connect(actSaveState[0], &QAction::triggered, this, &MainWindow::onSaveState);
         }
@@ -1660,7 +1665,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
             }
 
             actLoadState[0] = submenu->addAction("File...");
-            actLoadState[0]->setShortcut(QKeySequence((Qt::Key_F9) || (Input::HotkeyPressed(HK_LoadState))));
+            actLoadState[0]->setShortcut(QKeySequence(Qt::Key_F9));
             actLoadState[0]->setData(QVariant(0));
             connect(actLoadState[0], &QAction::triggered, this, &MainWindow::onLoadState);
         }
