@@ -593,6 +593,14 @@ void EmuThread::run()
         if (Input::HotkeyPressed(HK_Reset)) emit windowEmuReset();
         if (Input::HotkeyPressed(HK_FrameStep)) emit windowEmuFrameStep();
 
+		if (Input::HotkeyPressed(HK_SaveState)) {
+			connect(actSaveState[0], &QAction::triggered, this, &MainWindow::onSaveState);
+		}	
+		
+		if (Input::HotkeyPressed(HK_LoadState)) {
+			connect(actLoadState[0], &QAction::triggered, this, &MainWindow::onLoadState);
+		}
+		
         if (Input::HotkeyPressed(HK_FullscreenToggle)) emit windowFullscreenToggle();
 
         if (Input::HotkeyPressed(HK_SwapScreens)) emit swapScreensToggle();
