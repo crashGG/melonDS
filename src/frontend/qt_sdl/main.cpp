@@ -426,8 +426,8 @@ EmuThread::EmuThread(QObject* parent) : QThread(parent)
     connect(this, SIGNAL(screenLayoutChange()), mainWindow->panelWidget, SLOT(onScreenLayoutChanged()));
     connect(this, SIGNAL(windowFullscreenToggle()), mainWindow, SLOT(onFullscreenToggled()));
     connect(this, SIGNAL(swapScreensToggle()), mainWindow->actScreenSwap, SLOT(trigger()));
-    connect(this, SIGNAL(hkSaveState()), mainWindow, SLOT(onSaveState()));
-    connect(this, SIGNAL(hkLoadState()), mainWindow, SLOT(onSaveState()));
+    connect(this, SIGNAL(hkSaveState()), mainWindow->actSaveState[1], SLOT(onSaveState()));
+    connect(this, SIGNAL(hkLoadState()), mainWindow->actLoadState[1], SLOT(onLoadState()));
 
     static_cast<ScreenPanelGL*>(mainWindow->panel)->transferLayout(this);
 }
