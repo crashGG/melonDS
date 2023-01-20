@@ -82,7 +82,7 @@ const char* hk_general_labels[] =
 
 const int keypad_num = 12;
 const int hk_addons_num = 2;
-const int hk_general_num = 9;
+const int hk_general_num = 11;
 
 
 InputConfigDialog::InputConfigDialog(QWidget* parent) : QDialog(parent), ui(new Ui::InputConfigDialog)
