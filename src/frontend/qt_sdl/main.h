@@ -409,6 +409,8 @@ public:
     QActionGroup* grpScreenLayout;
     QAction* actScreenLayout[4];
     QAction* actScreenSwap;
+    QAction* actSaveStateHK;
+    QAction* actLoadStateHK;
     QActionGroup* grpScreenSizing;
     QAction* actScreenSizing[6];
     QAction* actIntegerScaling;
