@@ -85,6 +85,9 @@ signals:
     void windowFullscreenToggle();
 
     void swapScreensToggle();
+    
+    void hkSaveState();
+    void hkLoadState();
 
 private:
     void drawScreenGL();
