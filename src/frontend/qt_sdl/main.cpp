@@ -426,6 +426,8 @@ EmuThread::EmuThread(QObject* parent) : QThread(parent)
     connect(this, SIGNAL(screenLayoutChange()), mainWindow->panelWidget, SLOT(onScreenLayoutChanged()));
     connect(this, SIGNAL(windowFullscreenToggle()), mainWindow, SLOT(onFullscreenToggled()));
     connect(this, SIGNAL(swapScreensToggle()), mainWindow->actScreenSwap, SLOT(trigger()));
+    connect(this, SIGNAL(hkSaveState()), mainWindow->actSaveState[1], SLOT(onSaveState()));
+    connect(this, SIGNAL(hkLoadState()), mainWindow->actLoadState[1], SLOT(onLoadState()));
 
     static_cast<ScreenPanelGL*>(mainWindow->panel)->transferLayout(this);
 }
@@ -597,8 +599,8 @@ void EmuThread::run()
 
         if (Input::HotkeyPressed(HK_SwapScreens)) emit swapScreensToggle();
 		
-		if (Input::HotkeyPressed(HK_SaveState)) {connect(actSaveState[1], &QAction::triggered, this, &MainWindow::onSaveState);}
-		if (Input::HotkeyPressed(HK_LoadState)) {connect(actLoadState[1], &QAction::triggered, this, &MainWindow::onLoadState);}
+		if (Input::HotkeyPressed(HK_SaveState)) emit hkSaveState();
+		if (Input::HotkeyPressed(HK_LoadState)) emit hkLoadState();
 
         if (Input::HotkeyPressed(HK_SolarSensorDecrease))
         {
@@ -1647,9 +1649,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
             }
 
             actSaveState[0] = submenu->addAction("File...");
-            actSaveState[0]->setShortcut(QKeySequence(Qt::ShiftModifier | Qt::Key_F9));
-            actSaveState[0]->setData(QVariant(0));
-            connect(actSaveState[0], &QAction::triggered, this, &MainWindow::onSaveState);
+            actSaveState[0]->setShortcut(Input::HotkeyPressed(HK_SaveState);
+            actSaveState[0]->setData(QVariant(1));
+            connect(actSaveState[1], &QAction::triggered, this, &MainWindow::onSaveState);
         }
         {
             QMenu* submenu = menu->addMenu("Load state");
