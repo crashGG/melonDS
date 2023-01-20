@@ -60,7 +60,9 @@ const int hk_general[] =
     HK_FullscreenToggle,
     HK_Lid,
     HK_Mic,
-    HK_SwapScreens
+    HK_SwapScreens,
+    HK_SaveState,
+    HK_LoadState
 };
 
 const char* hk_general_labels[] =
@@ -73,7 +75,9 @@ const char* hk_general_labels[] =
     "Toggle fullscreen",
     "Close/open lid",
     "Microphone",
-    "Swap screens"
+    "Swap screens",
+    "Save State",
+    "Load State"
 };
 
 const int keypad_num = 12;
