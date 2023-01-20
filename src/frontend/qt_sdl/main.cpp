@@ -1649,7 +1649,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
             }
 
             actSaveState[0] = submenu->addAction("File...");
-            actSaveState[0]->setShortcut(Input::HotkeyPressed(HK_SaveState);
+            actSaveState[0]->setShortcut(Input::HotkeyPressed(HK_SaveState));
             actSaveState[0]->setData(QVariant(1));
             connect(actSaveState[1], &QAction::triggered, this, &MainWindow::onSaveState);
         }
