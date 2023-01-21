@@ -72,8 +72,8 @@ struct CameraConfig
 };
 
 
-extern int KeyMapping[12];
-extern int JoyMapping[12];
+extern int KeyMapping[14];
+extern int JoyMapping[14];
 
 extern int HKKeyMapping[HK_MAX];
 extern int HKJoyMapping[HK_MAX];
