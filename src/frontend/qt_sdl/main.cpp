@@ -1635,7 +1635,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
         {
             QMenu* submenu = menu->addMenu("Save state");
 
-            actSaveState[1] = submenu->addAction(QString("%1").arg(i));
+            actSaveState[1] = submenu->addAction("Save State");
             actSaveState[1]->setShortcut(Input::HotkeyPressed(HK_SaveState));
             actSaveState[1]->setData(QVariant(1));
             connect(actSaveState[1], &QAction::triggered, this, &MainWindow::onSaveState);
