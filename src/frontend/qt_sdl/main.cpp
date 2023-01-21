@@ -1635,18 +1635,10 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
         {
             QMenu* submenu = menu->addMenu("Save state");
 
-            for (int i = 1; i < 9; i++)
-            {
-                actSaveState[i] = submenu->addAction(QString("%1").arg(i));
-                actSaveState[i]->setShortcut(QKeySequence(Qt::ShiftModifier | (Qt::Key_F1+i-1)));
-                actSaveState[i]->setData(QVariant(i));
-                connect(actSaveState[i], &QAction::triggered, this, &MainWindow::onSaveState);
-            }
-
-            actSaveState[0] = submenu->addAction("File...");
-            actSaveState[0]->setShortcut(QKeySequence((Qt::ShiftModifier | Qt::Key_F9) || (Input::HotkeyPressed(HK_SaveState))));
-            actSaveState[0]->setData(QVariant(0));
-            connect(actSaveState[0], &QAction::triggered, this, &MainWindow::onSaveState);
+            actSaveState[1] = submenu->addAction(Save Slote 1);
+            actSaveState[1]->setShortcut(Input::HotkeyPressed(HK_SaveState));
+            actSaveState[1]->setData(QVariant(1));
+            connect(actSaveState[1], &QAction::triggered, this, &MainWindow::onSaveState);
         }
         {
             QMenu* submenu = menu->addMenu("Load state");
@@ -1660,7 +1652,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
             }
 
             actLoadState[0] = submenu->addAction("File...");
-            actLoadState[0]->setShortcut(QKeySequence((Qt::Key_F9) || (Input::HotkeyPressed(HK_LoadState))));
+            actLoadState[0]->setShortcut(QKeySequence(Qt::Key_F9));
             actLoadState[0]->setData(QVariant(0));
             connect(actLoadState[0], &QAction::triggered, this, &MainWindow::onLoadState);
         }
