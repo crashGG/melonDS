@@ -35,9 +35,9 @@ enum
     HK_SolarSensorDecrease,
     HK_SolarSensorIncrease,
     HK_FrameStep,
-    HK_MAX,
     HK_SaveState,
-    HK_LoadState
+    HK_LoadState,
+    HK_MAX
 };
 
 enum
