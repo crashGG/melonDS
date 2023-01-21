@@ -26,8 +26,8 @@
 namespace Config
 {
 
-int KeyMapping[14];
-int JoyMapping[14];
+int KeyMapping[12];
+int JoyMapping[12];
 
 int HKKeyMapping[HK_MAX];
 int HKJoyMapping[HK_MAX];
