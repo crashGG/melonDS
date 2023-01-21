@@ -600,8 +600,7 @@ void EmuThread::run()
         if (Input::HotkeyPressed(HK_SwapScreens)) emit swapScreensToggle();
 		
         if (Input::HotkeyPressed(HK_SaveState)) emit hkSaveState();
-        //if (Input::HotkeyPressed(HK_LoadState)) emit hkLoadState();
-        if (Input::HotkeyPressed(HK_LoadState)) break;
+        if (Input::HotkeyPressed(HK_LoadState)) emit hkLoadState();
 	
         if (Input::HotkeyPressed(HK_SolarSensorDecrease))
         {
