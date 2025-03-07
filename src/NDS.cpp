@@ -1025,7 +1025,6 @@ u32 NDS::RunFrame()
             ARM7Timestamp-SysTimestamp,
             GPU.GPU3D.Timestamp-SysTimestamp);
 #endif
-        SPU.TransferOutput();
         break;
     }
 
