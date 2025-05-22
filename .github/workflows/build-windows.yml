@@ -43,3 +43,4 @@ jobs:
       with:
         name: melonDS-windows-x86_64
         path: .\build\release-mingw-x86_64\melonDS.exe
+
