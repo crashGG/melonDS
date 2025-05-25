@@ -43,8 +43,7 @@ jobs:
           mingw-w64-ucrt-x86_64-cmake \
           mingw-w64-ucrt-x86_64-ninja \
           mingw-w64-ucrt-x86_64-make
-    - name: Verify GCC Version
-      run: gcc --version
+
     - name: Set up vcpkg
       uses: lukka/run-vcpkg@v11
       with:
