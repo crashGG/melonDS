@@ -2,12 +2,9 @@ name: Windows
 
 on:
   push:
-    branches:
-      - master
-      - ci/*
+    branches-ignore: []  # 空列表表示不忽略任何分支
   pull_request:
-    branches:
-      - master
+    branches-ignore: []  # 空列表表示不忽略任何分支
 
 env:
   VCPKG_COMMIT: 2ad004460f5db4d3b66f62f5799ff66c265c4b5d
