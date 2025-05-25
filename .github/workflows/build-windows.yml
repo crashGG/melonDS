@@ -30,12 +30,19 @@ jobs:
       with:
         msystem: ucrt64
         update: true
-        pacboy: cmake:p ninja:p make:p  # 不安装默认 GCC
-        install: >-
-          mingw-w64-ucrt-x86_64-gcc=14.2.0-1
-          cmake
-          ninja
-          make
+    - name: Download and install GCC 14.2.0-3
+      run: |
+        # 下载指定版本的GCC包
+        curl -L https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst -o gcc.pkg.tar.zst
+        
+        # 安装下载的包
+        pacman -U --noconfirm gcc.pkg.tar.zst
+        
+        # 安装依赖项
+        pacman -S --needed --noconfirm \
+          mingw-w64-ucrt-x86_64-cmake \
+          mingw-w64-ucrt-x86_64-ninja \
+          mingw-w64-ucrt-x86_64-make
     - name: Verify GCC Version
       run: gcc --version
     - name: Set up vcpkg
