@@ -30,15 +30,24 @@ jobs:
       with:
         msystem: ucrt64
         update: true
-    - name: Download and install GCC 14.2.0-3
+        - name: Download GCC packages
       run: |
-        # 下载指定版本的GCC包
-        curl -L https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst -o gcc.pkg.tar.zst
+        # 下载主包和签名文件
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst.sig
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-libs-14.2.0-3-any.pkg.tar.zst
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-libs-14.2.0-3-any.pkg.tar.zst.sig
         
-        # 安装下载的包
-        pacman -U --noconfirm gcc.pkg.tar.zst
+        # 验证签名（需要先导入密钥）
+        pacman-key --verify mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst.sig
+        pacman-key --verify mingw-w64-ucrt-x86_64-gcc-libs-14.2.0-3-any.pkg.tar.zst.sig
         
-        # 安装依赖项
+        # 安装包及其依赖
+        pacman -U --noconfirm \
+          mingw-w64-ucrt-x86_64-gcc-libs-14.2.0-3-any.pkg.tar.zst \
+          mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst
+          
+        # 安装构建工具
         pacman -S --needed --noconfirm \
           mingw-w64-ucrt-x86_64-cmake \
           mingw-w64-ucrt-x86_64-ninja \
