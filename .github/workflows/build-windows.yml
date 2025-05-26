@@ -32,11 +32,24 @@ jobs:
         # download gcc 14.2
         curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst
         curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gcc-libs-14.2.0-3-any.pkg.tar.zst
-        
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-gettext-runtime-0.24-1-any.pkg.tar.zst
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-libffi-3.4.7-1-any.pkg.tar.zst
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-libuv-1.50.0-2-any.pkg.tar.zst
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-nghttp3-1.8.0-1-any.pkg.tar.zst
+        curl -LO https://repo.msys2.org/mingw/ucrt64/mingw-w64-ucrt-x86_64-openssl-3.4.1-1-any.pkg.tar.zst
+
+
+
+
         # setup gcc 14.2
         pacman -U --noconfirm \
           mingw-w64-ucrt-x86_64-gcc-libs-14.2.0-3-any.pkg.tar.zst \
           mingw-w64-ucrt-x86_64-gcc-14.2.0-3-any.pkg.tar.zst
+          mingw-w64-ucrt-x86_64-gettext-runtime-0.24-1-any.pkg.tar.zst
+          mingw-w64-ucrt-x86_64-libffi-3.4.7-1-any.pkg.tar.zst
+          mingw-w64-ucrt-x86_64-libuv-1.50.0-2-any.pkg.tar.zst
+          mingw-w64-ucrt-x86_64-nghttp3-1.8.0-1-any.pkg.tar.zst
+          mingw-w64-ucrt-x86_64-openssl-3.4.1-1-any.pkg.tar.zst
           
         # setup build tools
         pacman -S --needed --noconfirm \
