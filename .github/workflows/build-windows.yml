@@ -20,7 +20,7 @@ jobs:
       matrix:
         vmImage: [windows-2022]
     env:
-      ImageVersion: "20250406.1"
+      ImageVersion: "20250406.1.1"
     defaults:
       run:
         shell: msys2 {0}
