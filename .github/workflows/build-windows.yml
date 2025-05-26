@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022-20250406
     defaults:
       run:
         shell: msys2 {0}
@@ -62,7 +62,7 @@ jobs:
       with:
         vcpkgGitCommitId: ${{ env.VCPKG_COMMIT }}
     - name: Configure
-      run: cmake --preset=release-mingw-x86_64 -DMELONDS_EMBED_BUILD_INFO=OFF -DUSE_QT6=OFF -DCMAKE_PREFIX_PATH=$MSYSTEM_PREFIX/qt5-static
+      run: cmake --preset=release-mingw-x86_64 -DMELONDS_EMBED_BUILD_INFO=OFF -DUSE_QT6=OFF
     - name: Build
       run: cmake --build --preset=release-mingw-x86_64
     - uses: actions/upload-artifact@v4
