@@ -59,7 +59,7 @@ set(SOURCES_QT_SDL
     NetplayDialog.cpp
 )
 
-option(USE_QT6 "Use Qt 6 instead of Qt 5" OFF)
+option(USE_QT6 "Use Qt 6 instead of Qt 5" ON)
 
 if (USE_QT6)
     find_package(Qt6 COMPONENTS Core Gui Widgets Network Multimedia OpenGL OpenGLWidgets Svg REQUIRED)
