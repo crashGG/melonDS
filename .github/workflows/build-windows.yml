@@ -15,7 +15,12 @@ env:
 
 jobs:
   build:
-    runs-on: windows-2022-20250406
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        vmImage: [windows-2022]
+    env:
+      ImageVersion: "20250406.1"
     defaults:
       run:
         shell: msys2 {0}
