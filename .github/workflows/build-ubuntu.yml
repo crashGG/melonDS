@@ -3,7 +3,7 @@ name: Ubuntu
 on:
   push:
     branches:
-      - master
+      - master1
       - ci/*
   pull_request:
     branches:

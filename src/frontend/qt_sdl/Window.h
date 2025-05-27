@@ -337,7 +337,7 @@ public:
     QActionGroup* grpScreenGap;
     QAction* actScreenGap[6];
     QActionGroup* grpHybridRatio;
-    QAction* actHybridRatio[9];
+    QAction* actHybridRatio[10];
     QActionGroup* grpScreenLayout;
     QAction* actScreenLayout[screenLayout_MAX];
     QAction* actScreenSwap;
