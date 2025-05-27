@@ -516,7 +516,7 @@ MainWindow::MainWindow(int id, EmuInstance* inst, QWidget* parent) :
                 grpHybridRatio = new QActionGroup(submenu);
 
 				const char *hybridRatio[] = {"2:1", "3:1", "4:1", "5:1", "6:1", "7:1", "5:2", "7:3", "9:4", "11:4"};
-                const int screengap[] = {0, 192, 384, 576, 768, 960, 96, 64, 48, 624};
+                const int screengap[] = {0, 192, 384, 576, 768, 960, 96, 64, 48, 156};
 
                 for (int i = 0; i < 10; i++)
                 {
