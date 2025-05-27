@@ -2,9 +2,9 @@ name: Windows
 
 on:
   push:
-    branches-ignore: []  # 空列表表示不忽略任何分支
+    branches-ignore: []  # 绌哄垪琛ㄨ〃绀轰笉蹇界暐浠讳綍鍒嗘敮
   pull_request:
-    branches-ignore: []  # 空列表表示不忽略任何分支
+    branches-ignore: []  # 绌哄垪琛ㄨ〃绀轰笉蹇界暐浠讳綍鍒嗘敮
 
 env:
   VCPKG_COMMIT: 2ad004460f5db4d3b66f62f5799ff66c265c4b5d
@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: windows-2019
     defaults:
       run:
         shell: msys2 {0}
